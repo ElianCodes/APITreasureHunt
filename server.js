@@ -129,11 +129,11 @@ app.post('/api/login', async (req, res) => {
             const user = await users.findOne({ name: req.body.name }).exec();   
             if(user != null) {
                 const token = jwt.sign({ name: user.name }, 'smollPP')
-                res.status(200).json({ msg: "Username already exists", token: token})
+                res.status(200).json({token: token, "next question": "let's add the token to the next request to authenticate you!", "tip": "use the authentication tab"})
             } else {
                 const newUser = await users.create({name: req.body.name, step: 4, completedAt: Date.now()})
                 const token = jwt.sign({ name: newUser.name }, 'smollPP')
-                res.status(201).json(token)
+                res.status(201).json({token: token, "next question": "let's add the token to the next request to authenticate you!", "tip": "use the authentication tab"})
             }
         }
     } catch (e) {
