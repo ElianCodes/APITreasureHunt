@@ -102,7 +102,7 @@ app.get("/api/deadcount/walter", async function (req, res) {
 app.get("/api/deadcount/walter/:number", async function (req, res) {
     try {
         if(req.params.number == 198){
-            res.status(200).json({ msg: "You're god damn right", "next question": "Use the submit request and send it to see if you've won!"})
+            res.status(200).json({ msg: "You're god damn right", "next question": "You're almost there! Let's advance by using authentication"})
         } else if (req.params.number == 200) {
             res.status(400).json({ msg: "Please don't use Google, use the provided API"})
         } else if (req.params.number == 69) {
