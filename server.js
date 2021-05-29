@@ -99,7 +99,7 @@ app.get("/api/deadcount/walter", async function (req, res) {
     }
 })
 
-app.get("/api/deadcount/walter/:number", async function (req, res) {
+app.get("/api/deathcount/walter/:number", async function (req, res) {
     try {
         if(req.params.number == 198){
             res.status(200).json({ msg: "You're god damn right", "next question": "You're almost there! Let's advance by using authentication"})
