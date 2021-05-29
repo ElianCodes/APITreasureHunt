@@ -65,8 +65,8 @@ app.route("/api/decode").post(async function (req, res) {
     try {
         if(req.body.code == "4765656e546970") {
             res.status(200).json({ 
-                "next question": "How many deaths does Walter White have in the Breaking Bad television show?",
-                "tip": "use the www.breakingbadapi.com API"
+                "next question": "How many kills does Walter White have in the Breaking Bad television show?",
+                "tip": "use the www.breakingbadapi.com API and it's documentation"
             })    
         } else if (req.body.code == null) {
             res.status(400).json({ msg: "did you send the code?"})
