@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors')
-const PORT = 8080
+const PORT = process.env.PORT ?? 8080
 const jwt = require('jsonwebtoken')
 
 app.use(cors())
