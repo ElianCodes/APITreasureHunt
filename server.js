@@ -51,6 +51,16 @@ app.get("/api/getcode", async function (req, res) {
     }
 })
 
+app.route("/api/decode/:code").post(async function (req, res) {
+    res.status(404).json({ error: "Sure you're using the right method to send the code?"})
+}).get(async function (req, res) {
+    res.status(404).json({ error: "Sure you're using the right method to send the code?"})
+}).put(async function (req, res) {
+    res.status(404).json({ error: "Sure you're using the right method to send the code?"})
+}).delete(async function (req, res) {
+    res.status(404).json({ error: "Sure you're using the right method to send the code?"})
+})
+
 app.route("/api/decode").post(async function (req, res) {
     try {
         if(req.body.code == "4765656e546970") {
