@@ -7,7 +7,11 @@
   "author": "Elian Van Cutsem <hello@elian.codes>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },
