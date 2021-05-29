@@ -97,7 +97,7 @@ app.get("/api/deadcount/walter/:number", async function (req, res) {
             res.status(400).json({ msg: "Please don't use Google, use the provided API"})
         } else if (req.params.number == 69) {
             res.status(400).json({ 
-                msg: "Disapointed"
+                msg: "Nice"
             })
         } else {
             res.status(400).json({ msg: "that's just wrong kiddo"})
@@ -143,9 +143,14 @@ app.get("/api/submit", async function (req, res) {
         if (!token) {
           return res.status(401).json({ msg: "No token, auth denied" });
         }
-        const decoded = jwt.verify(token, "smollPP");
-        req.user = decoded.user;
-        res.status(200).json({ msg: 'Congrats! You have completed the treasure hunt!'})
+        const decoded = jwt.verify(token, "smollPP", function(err, decoded) {
+            if(err) {
+                res.status(401).json({ msg: "That does't look like a valid token"})
+            } else {
+                req.user = decoded.user;
+                res.status(200).json({ msg: 'Congrats! You have completed the treasure hunt!'})
+            }
+        });
     } catch (e) {
       if (e) throw e
         res.status(500).send(errormsg)
@@ -155,6 +160,32 @@ app.get("/api/submit", async function (req, res) {
 app.get("/api/completedOne/:checks", async function (req, res) {
     try {
         if(req.params.checks == 2){
+            res.sendStatus(200)
+        } else {
+            res.sendStatus(404)
+        }
+    } catch (e) {
+      if (e) throw e
+        res.status(500).send(errormsg)
+    }
+})
+
+app.get("/api/completedTwo/:checks", async function (req, res) {
+    try {
+        if(req.params.checks == 5){
+            res.sendStatus(200)
+        } else {
+            res.sendStatus(404)
+        }
+    } catch (e) {
+      if (e) throw e
+        res.status(500).send(errormsg)
+    }
+})
+
+app.get("/api/completedThree/:checks", async function (req, res) {
+    try {
+        if(req.params.checks == 3){
             res.sendStatus(200)
         } else {
             res.sendStatus(404)
